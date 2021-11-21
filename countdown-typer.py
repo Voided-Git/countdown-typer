@@ -30,8 +30,9 @@ def time_input(prompt: str):
 def raw_time(time: str):
     _1end = time[len(time) - 1].upper()
     _2end = time[len(time) - 2].upper()
-    _1rawtime = int(time[:-1])
-    if not is_int(_1rawtime):
+    if is_int(time[:-1]):
+        _1rawtime = int(time[:-1])
+    if is_int(time[:-2]):
         _2rawtime = int(time[:-2])
 
     if is_int(time) or _1end == "S":
@@ -74,6 +75,8 @@ def raw_time(time: str):
 def infinity_sender():
     i = 0
     write("∞")
+    press_and_release("return")
+    sleep(1)
 
     while True:
         i += 1
